@@ -7,6 +7,8 @@ module.exports = {
 		'./src/components/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		colors,
+		extend: {
+			colors,
+		},
 	},
 };
