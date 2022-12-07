@@ -4,7 +4,14 @@ const SignUpForm = () => {
 	return (
 		<div className="flex justify-center items-center w-[1045px] h-[600px] rounded-[8px] bg-white">
 			<div className="flex flex-col items-center h-[480px]">
-				<Image src="/logo.png" width={109} height={54} alt="logo" priority />
+				<Image
+					className=" w-auto h-auto"
+					src="/logo.png"
+					width={109}
+					height={54}
+					alt="logo"
+					priority
+				/>
 				<span className="mt-[40px] not-italic font-bold text-[20px] leading-[150%]">
 					✍️️회원가입
 				</span>
