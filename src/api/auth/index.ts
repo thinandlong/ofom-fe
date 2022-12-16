@@ -1,5 +1,5 @@
 import api from '@api/index';
-import { LoginFormInput, Login } from './type';
+import { LoginFormInput, Login } from './types';
 
 const RESOURCE = '/api/v1/auth';
 

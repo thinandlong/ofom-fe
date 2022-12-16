@@ -1,5 +1,5 @@
 import api from '@api/index';
-import { SignUp, SignUpFormInput } from './type';
+import { SignUp, SignUpFormInput } from './types';
 
 const RESOURCE = '/api/v1/users';
 
