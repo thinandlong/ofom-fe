@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import useForm from '@hooks/useForm';
-import useMutateSignUp from '@hooks/useMutateSignUp';
-import { useRouter } from 'next/router';
+import useSignUpMutation from '@mutations/useSignUpMutaion';
 
 const SignUpForm = () => {
-	const router = useRouter();
-	const { signUp, isLoading } = useMutateSignUp();
+	const { mutateAsync, isLoading } = useSignUpMutation();
 
 	// mutation을 통한 예외처리 로직 구체화 필요
 	// useForm validate 구체화 필요
@@ -34,8 +32,7 @@ const SignUpForm = () => {
 		},
 		onSubmit: async () => {
 			const { username, password, nickname } = values;
-			await signUp({ username, password, nickname });
-			router.push('/login');
+			await mutateAsync({ username, password, nickname });
 		},
 	});
 
