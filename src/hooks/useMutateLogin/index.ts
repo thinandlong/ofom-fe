@@ -1,10 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
-import * as api from '@api/auth';
+import { loginApi } from '@api/auth';
 
 const QUERY_KEY = ['login'];
 
 const useMutateLogin = () => {
-	const mutaion = useMutation(QUERY_KEY, api.login, {
+	const mutaion = useMutation(QUERY_KEY, loginApi, {
 		onSuccess: (res) => {
 			const { token } = res.data;
 			localStorage.setItem('token', token);

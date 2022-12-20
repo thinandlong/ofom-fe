@@ -1,8 +1,8 @@
 import api from '@api/index';
-import { LoginFormInput, Login } from './types';
+import type { LoginFormInput, Login } from './types';
 
 const RESOURCE = '/api/v1/auth';
 
-export const login = async (data: LoginFormInput) => {
+export const loginApi = async (data: LoginFormInput) => {
 	return api.post<Login>(`${RESOURCE}/login`, data);
 };
