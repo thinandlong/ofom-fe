@@ -8,8 +8,7 @@ interface Props {
 
 const useForm = ({ initialState, validate, onSubmit }: Props) => {
 	const [values, setValues] = useState(initialState);
-	const [errors, setErrors] = useState({});
-	const [loading, setLoading] = useState(false);
+	const [errors, setErrors] = useState(initialState);
 
 	const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -19,7 +18,6 @@ const useForm = ({ initialState, validate, onSubmit }: Props) => {
 	const handleSubmit = useCallback(
 		async (e: FormEvent<HTMLFormElement>) => {
 			e.preventDefault();
-			setLoading(() => true);
 
 			const newErrors = validate(values);
 
@@ -28,8 +26,6 @@ const useForm = ({ initialState, validate, onSubmit }: Props) => {
 			} else {
 				setErrors(newErrors);
 			}
-
-			setLoading(() => false);
 		},
 		[values, validate, onSubmit],
 	);
@@ -38,7 +34,6 @@ const useForm = ({ initialState, validate, onSubmit }: Props) => {
 		values,
 		errors,
 		setErrors,
-		loading,
 		handleChange,
 		handleSubmit,
 	};
