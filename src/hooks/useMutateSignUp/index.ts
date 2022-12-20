@@ -1,7 +1,7 @@
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import * as api from '@api/user';
 
-const QUERY_KEY = 'signup';
+const QUERY_KEY = ['signup'];
 
 const useMutateSignUp = () => {
 	const mutation = useMutation(QUERY_KEY, api.signUp);
