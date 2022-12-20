@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { signUpApi } from '@api/user';
 import { useRouter } from 'next/router';
+import { signUpApi } from './api';
 
 const QUERY_KEY = ['signup'];
 
