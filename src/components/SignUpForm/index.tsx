@@ -43,7 +43,7 @@ const SignUpForm = () => {
 				onSubmit={handleSubmit}
 			>
 				<Image
-					className=" w-auto h-auto"
+					className="w-auto h-auto "
 					src="/logo.png"
 					width={109}
 					height={54}

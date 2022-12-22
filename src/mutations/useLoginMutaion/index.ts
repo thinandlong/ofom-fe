@@ -8,9 +8,7 @@ const useLoginMutaion = () => {
 	const router = useRouter();
 
 	const mutaion = useMutation(QUERY_KEY, loginApi, {
-		onSuccess: (res) => {
-			const { token } = res.data;
-
+		onSuccess: ({ token }) => {
 			localStorage.setItem('token', token);
 			router.push('/main');
 		},

@@ -1,8 +1,6 @@
-import api from '@api/index';
+import { V1_RESOURCE } from '@api/constants';
+import { commonInstance } from '@api/index';
 import type { LoginFormInput, Login } from './types';
 
-const RESOURCE = '/api/v1/auth';
-
-export const loginApi = async (data: LoginFormInput) => {
-	return api.post<Login>(`${RESOURCE}/login`, data);
-};
+export const loginApi = async (data: LoginFormInput) =>
+	commonInstance.post<Login>(`${V1_RESOURCE}/auth/login`, data);
