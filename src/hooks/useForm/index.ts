@@ -1,14 +1,24 @@
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+/* eslint-disable no-unused-expressions */
+import { ChangeEvent, FormEvent, useCallback, useMemo, useState } from 'react';
+import { ErrorType, UseForm } from './types';
 
-interface Props {
-	initialState: { [key: string]: string };
-	validate: (values: { [key: string]: string }) => { [key: string]: string };
-	onSubmit: () => Promise<void>;
-}
-
-const useForm = ({ initialState, validate, onSubmit }: Props) => {
+const useForm = <T extends object>({
+	initialState,
+	validate,
+	onSubmit,
+}: UseForm<T>) => {
 	const [values, setValues] = useState(initialState);
-	const [errors, setErrors] = useState(initialState);
+	const [errors, setErrors] = useState(() => {
+		return Object.fromEntries(
+			Object.entries(initialState).map(([key]) => [[key], null]),
+		) as ErrorType<typeof initialState>;
+	});
+	const [hasFormError, setHasFormError] = useState(false);
+
+	const propertyLen = useMemo(
+		() => Object.keys(initialState).length,
+		[initialState],
+	);
 
 	const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -20,14 +30,17 @@ const useForm = ({ initialState, validate, onSubmit }: Props) => {
 			e.preventDefault();
 
 			const newErrors = validate(values);
+			const validPropertyLen = Object.values(newErrors).filter(
+				(v) => v === null,
+			).length;
+			const isValid = propertyLen === validPropertyLen;
 
-			if (Object.keys(newErrors).length === 0) {
-				await onSubmit();
-			} else {
-				setErrors(newErrors);
-			}
+			setHasFormError(!isValid);
+			setErrors(newErrors);
+
+			isValid && (await onSubmit());
 		},
-		[values, validate, onSubmit],
+		[values, validate, onSubmit, propertyLen],
 	);
 
 	return {
@@ -36,6 +49,7 @@ const useForm = ({ initialState, validate, onSubmit }: Props) => {
 		setErrors,
 		handleChange,
 		handleSubmit,
+		hasFormError,
 	};
 };
 
