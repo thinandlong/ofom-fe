@@ -1,41 +1,47 @@
+/* eslint-disable array-callback-return */
 import Image from 'next/image';
 import useForm from '@hooks/useForm';
 import useSignUpMutation from '@mutations/useSignUpMutaion';
+import { useEffect, useMemo } from 'react';
+import SignUpApiErrorTxt from '@components/SignUpApiErrorTxt';
 
 const SignUpForm = () => {
-	const { mutateAsync, isLoading } = useSignUpMutation();
-
-	// mutation을 통한 예외처리 로직 구체화 필요
-	// useForm validate 구체화 필요
-	const { values, handleChange, handleSubmit } = useForm({
-		initialState: {
+	const { mutateAsync, isLoading, error: signUpApiError } = useSignUpMutation();
+	const initialFormState = useMemo(
+		() => ({
 			username: '',
 			password: '',
 			nickname: '',
-		},
+		}),
+		[],
+	);
+
+	const { values, errors, handleChange, handleSubmit, hasFormError } = useForm({
+		initialState: initialFormState,
 		validate: ({ username, password, nickname }) => {
-			const errors: { [key: string]: string } = {};
-
+			let usernameError = null;
+			let passwordError = null;
+			let nicknameError = null;
 			if (!username) {
-				errors.username = '이메일을 입력해주세요.';
+				usernameError = '이메일을 입력해주세요.';
 			}
-
 			if (!password) {
-				errors.password = '비밀번호를 입력해주세요.';
+				passwordError = '비밀번호를 입력해주세요.';
 			}
-
 			if (!nickname) {
-				errors.nickname = '닉네임을 입력해주세요.';
+				nicknameError = '닉네임을 입력해주세요.';
 			}
-
-			return errors;
+			return {
+				username: usernameError,
+				password: passwordError,
+				nickname: nicknameError,
+			};
 		},
 		onSubmit: async () => {
 			const { username, password, nickname } = values;
 			await mutateAsync({ username, password, nickname });
 		},
 	});
-
 	return (
 		<div className="flex justify-center items-center w-[1045px] h-[600px] rounded-[8px] bg-white">
 			<form
@@ -50,7 +56,6 @@ const SignUpForm = () => {
 					alt="logo"
 					priority
 				/>
-
 				<span className="mt-[40px] not-italic font-bold text-[20px] leading-[150%]">
 					✍️️회원가입
 				</span>
@@ -66,7 +71,7 @@ const SignUpForm = () => {
 					onChange={handleChange}
 					placeholder="이메일"
 				/>
-
+				{errors.username && <span>{errors.username}</span>}
 				<input
 					className="w-full mt-[32px] p-1 border-b"
 					type="password"
@@ -90,6 +95,9 @@ const SignUpForm = () => {
 				>
 					회원가입
 				</button>
+				{!hasFormError && signUpApiError && (
+					<SignUpApiErrorTxt errorCode={signUpApiError.errorCode} />
+				)}
 			</form>
 		</div>
 	);
