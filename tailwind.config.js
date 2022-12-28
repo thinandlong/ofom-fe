@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('./src/styles/colors.cjs');
+const fontStyle = require('./src/styles/fontStyle.cjs');
 
 module.exports = {
 	content: [
@@ -9,6 +10,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors,
+			fontStyle,
 		},
 	},
 };
