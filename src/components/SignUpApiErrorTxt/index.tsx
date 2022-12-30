@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 import { ApiError } from '@api/types';
 
-interface SignUpApiErrorProps extends Pick<ApiError, 'errorCode'> {}
+type SignUpApiErrorProps = Pick<ApiError, 'errorCode'>;
+
 const SignUpApiErrorTxt = ({ errorCode }: SignUpApiErrorProps) => {
   return (
     <span>

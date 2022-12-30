@@ -5,19 +5,19 @@ import { useRouter } from 'next/router';
 import { signUpApi } from './api';
 
 const useSignUpMutation = () => {
-	const router = useRouter();
+  const router = useRouter();
 
-	const mutation = useMutation(signUpApi, {
-		onSuccess: ({ socialType, username }) => {
-			console.log(username, socialType, 'asdf');
-			router.push('/login');
-		},
-		onError: ({ errorCode }: ApiError) => {
-			console.error(errorCode, 'errorCode');
-		},
-	});
+  const mutation = useMutation(signUpApi, {
+    onSuccess: ({ socialType, username }) => {
+      console.log(username, socialType, 'asdf');
+      router.push('/login');
+    },
+    onError: ({ errorCode }: ApiError) => {
+      console.error(errorCode, 'errorCode');
+    },
+  });
 
-	return mutation;
+  return mutation;
 };
 
 export default useSignUpMutation;
