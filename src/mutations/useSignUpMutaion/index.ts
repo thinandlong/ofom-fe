@@ -1,19 +1,22 @@
+/* eslint-disable no-console */
+import { ApiError } from '@api/types';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { signUpApi } from './api';
 
-const QUERY_KEY = ['signup'];
-
 const useSignUpMutation = () => {
-	const router = useRouter();
+  const router = useRouter();
 
-	const mutation = useMutation(QUERY_KEY, signUpApi, {
-		onSuccess: () => {
-			router.push('/login');
-		},
-	});
+  const mutation = useMutation(signUpApi, {
+    onSuccess: ({ socialType, username }) => {
+      router.push('/login');
+    },
+    onError: ({ errorCode }: ApiError) => {
+      console.error(errorCode, 'errorCode');
+    },
+  });
 
-	return mutation;
+  return mutation;
 };
 
 export default useSignUpMutation;

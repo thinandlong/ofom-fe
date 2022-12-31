@@ -1,42 +1,54 @@
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import { ChangeEvent, FormEvent, useCallback, useMemo, useState } from 'react';
+import { ErrorType, UseForm } from './types';
 
-interface Props {
-	initialState: { [key: string]: string };
-	validate: (values: { [key: string]: string }) => { [key: string]: string };
-	onSubmit: () => Promise<void>;
-}
+const useForm = <T extends object>({
+  initialState,
+  validate,
+  onSubmit,
+}: UseForm<T>) => {
+  const [values, setValues] = useState(initialState);
+  const [errors, setErrors] = useState<ErrorType<typeof initialState>>(() =>
+    Object.fromEntries(
+      Object.entries(initialState).map(([key]) => [[key], null]),
+    ),
+  );
+  const [hasFormError, setHasFormError] = useState(false);
 
-const useForm = ({ initialState, validate, onSubmit }: Props) => {
-	const [values, setValues] = useState(initialState);
-	const [errors, setErrors] = useState(initialState);
+  const propertyLen = useMemo(
+    () => Object.keys(initialState).length,
+    [initialState],
+  );
 
-	const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = e.target;
-		setValues((state) => ({ ...state, [name]: value }));
-	}, []);
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setValues((state) => ({ ...state, [name]: value }));
+  }, []);
 
-	const handleSubmit = useCallback(
-		async (e: FormEvent<HTMLFormElement>) => {
-			e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-			const newErrors = validate(values);
+      const newErrors = validate(values);
+      const validPropertyLen = Object.values(newErrors).filter(
+        (v) => v === null,
+      ).length;
+      const isValid = propertyLen === validPropertyLen;
 
-			if (Object.keys(newErrors).length === 0) {
-				await onSubmit();
-			} else {
-				setErrors(newErrors);
-			}
-		},
-		[values, validate, onSubmit],
-	);
+      setHasFormError(!isValid);
+      setErrors(newErrors);
+      if (isValid) await onSubmit();
+    },
+    [values, validate, onSubmit, propertyLen],
+  );
 
-	return {
-		values,
-		errors,
-		setErrors,
-		handleChange,
-		handleSubmit,
-	};
+  return {
+    values,
+    errors,
+    setErrors,
+    handleChange,
+    handleSubmit,
+    hasFormError,
+  };
 };
 
 export default useForm;
