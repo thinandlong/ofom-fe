@@ -9,7 +9,6 @@ const useSignUpMutation = () => {
 
   const mutation = useMutation(signUpApi, {
     onSuccess: ({ socialType, username }) => {
-      console.log(username, socialType, 'asdf');
       router.push('/login');
     },
     onError: ({ errorCode }: ApiError) => {
