@@ -1,6 +1,12 @@
 import { ChangeEvent, FormEvent, useCallback, useMemo, useState } from 'react';
 import { ErrorType, UseForm } from './types';
 
+/**
+ *
+ * @param initialState form에 전달해야하는 객체의 초기값을 입력합니다.
+ * @param ErrorType initialState가 key가되고, 해당하는 키에 대한 에러 상태를 나타냅니다.
+ * @param validate initialState의 키를 인자로 받아 ErrorType<T>를 return해야합니다.
+ */
 const useForm = <T extends object>({
   initialState,
   validate,
