@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { ApiError } from '@api/types';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
@@ -12,8 +11,8 @@ const useLoginMutaion = () => {
       localStorage.setItem('token', token);
       router.push('/main');
     },
-    onError: ({ errorCode }: ApiError) => {
-      console.error(errorCode, 'errorCode');
+    onError: ({ reason }: ApiError) => {
+      alert(reason);
     },
   });
 

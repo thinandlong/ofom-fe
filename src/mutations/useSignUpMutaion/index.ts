@@ -11,8 +11,8 @@ const useSignUpMutation = () => {
     onSuccess: () => {
       router.push('/login');
     },
-    onError: ({ errorCode }: ApiError) => {
-      console.error(errorCode, 'errorCode');
+    onError: ({ reason }: ApiError) => {
+      alert(reason);
     },
   });
 
