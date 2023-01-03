@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { ApiError } from '@api/types';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
