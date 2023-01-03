@@ -8,7 +8,7 @@ const flexPlugins = plugin(function ({ addUtilities }) {
       'justify-content': 'center',
       'align-items': 'center',
     },
-    '.flex-dir-col-center-y': {
+    '.flex-col-items-center': {
       display: 'flex',
       'flex-direction': 'column',
       'align-items': 'center',
