@@ -1,11 +1,14 @@
-import SignUpForm from '@components/SignUpForm';
+import Header from './components/Header';
+import SignUpForm from './components/SignUpForm';
+import Wrapper from './components/Wrapper';
 
 const SignUpPage = () => {
-	return (
-		<div className="flex justify-center items-center w-screen h-screen bg-[#D2D4D9]">
-			<SignUpForm />
-		</div>
-	);
+  return (
+    <Wrapper>
+      <Header />
+      <SignUpForm />
+    </Wrapper>
+  );
 };
 
 export default SignUpPage;
