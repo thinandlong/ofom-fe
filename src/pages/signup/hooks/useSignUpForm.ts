@@ -13,7 +13,7 @@ interface UseSignUpFormProps {
   >;
 }
 
-const UseSignUpForm = ({ mutateAsync }: UseSignUpFormProps) => {
+const useSignUpForm = ({ mutateAsync }: UseSignUpFormProps) => {
   const initialFormState = useMemo(
     () => ({
       username: '',
@@ -54,4 +54,4 @@ const UseSignUpForm = ({ mutateAsync }: UseSignUpFormProps) => {
     handleSubmit,
   };
 };
-export default UseSignUpForm;
+export default useSignUpForm;

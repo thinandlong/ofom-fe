@@ -1,9 +1,9 @@
 import useSignUpMutation from '@mutations/useSignUpMutaion';
-import UseSignUpForm from '@pages/signup/hooks/useSignUpForm';
+import useSignUpForm from '@pages/signup/hooks/useSignUpForm';
 
 const SignUpForm = () => {
   const { mutateAsync, isLoading } = useSignUpMutation();
-  const { handleChange, handleSubmit } = UseSignUpForm({ mutateAsync });
+  const { handleChange, handleSubmit } = useSignUpForm({ mutateAsync });
 
   return (
     <form
