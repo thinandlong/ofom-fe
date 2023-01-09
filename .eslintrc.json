@@ -68,7 +68,9 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "no-alert": "off"
+    "no-alert": "off",
+    "no-param-reassign": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "import/resolver": {
