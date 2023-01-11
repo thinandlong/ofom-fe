@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { CustomInstance } from '../types';
 
 const commonInterceptor = (instance: CustomInstance) => {
