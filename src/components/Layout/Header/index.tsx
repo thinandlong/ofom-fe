@@ -1,8 +1,5 @@
 import Image from 'next/image';
 import { useUser } from '@queries/index';
-import appIcon from '../../../../public/app-icon.png';
-import defaultThumbnail from '../../../../public/default-thumbnail.png';
-import popUp from '../../../../public/popup.png';
 
 const Header = () => {
   const { data: user } = useUser();
@@ -10,7 +7,13 @@ const Header = () => {
   return (
     <div className="flex justify-around items-center absolute top-0 w-[100%] h-[56px] bg-white">
       <div className="flex justify-between items-center gap-[28px] text-body_2_MD text-gray700">
-        <Image src={appIcon} alt="앱아이콘" priority />
+        <Image
+          className="w-auto h-auto"
+          src="/app-icon.png"
+          alt="앱아이콘"
+          width={36}
+          height={36}
+        />
         {user && <span className="cursor-pointer">마이 폼</span>}
         <span className="cursor-pointer">서비스 소개 ↗️</span>
       </div>
@@ -21,12 +24,19 @@ const Header = () => {
       {user ? (
         <div className="flex-center gap-[16px]">
           <Image
-            src={user.thumbnailUrl || defaultThumbnail}
+            className="w-auto h-auto cursor-pointer"
+            src={user.thumbnailUrl || '/default-thumbnail.png'}
             alt="프로필이미지"
-            priority
-            className="rounded-[6px]"
+            width={28}
+            height={28}
           />
-          <Image src={popUp} alt="알림" priority className="cursor-pointer" />
+          <Image
+            className="w-auto h-auto cursor-pointer"
+            src="/popup.png"
+            alt="알림"
+            width={24}
+            height={24}
+          />
           <button
             type="button"
             className="flex-center w-[81px] h-[29px] px-[16px] py-[4px] gap-[8px] bg-gray100 rounded-[100px] text-body_3_MD text-gray700 cursor-pointer"
