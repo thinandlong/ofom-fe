@@ -1,9 +1,9 @@
-import { FocusEvent } from 'react';
+import { addBoxShadow, removeBoxShadow } from 'utils';
 import Chip from './components/Chip';
 import { TextFieldProps } from './types';
 import styles from './Textfield.module.scss';
 
-const TextField = ({
+const Textfield = ({
   label,
   placeholder,
   inputFontSize,
@@ -11,17 +11,6 @@ const TextField = ({
   inputId,
   type = 'input',
 }: TextFieldProps) => {
-  const setBoxShadow = (e: FocusEvent) => {
-    const activeTextField = e.target.parentElement;
-    activeTextField?.setAttribute(
-      'style',
-      'box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08)',
-    );
-  };
-  const removeBoxShadow = (e: FocusEvent) => {
-    const activeTextField = e.target.parentElement;
-    activeTextField?.setAttribute('style', 'box-shadow: initial');
-  };
   return (
     <div className="p-24 border-solid border-1 border-gray200 w-[100%] bg-white rounded-8">
       <div className="flex justify-between mb-7">
@@ -42,7 +31,7 @@ const TextField = ({
           style={{ width: 'inherit' }}
           placeholder={placeholder}
           id={inputId}
-          onFocus={setBoxShadow}
+          onFocus={addBoxShadow}
           onBlur={removeBoxShadow}
         />
       )}
@@ -52,11 +41,11 @@ const TextField = ({
           id={inputId}
           placeholder={placeholder}
           contentEditable
-          onFocus={setBoxShadow}
+          onFocus={addBoxShadow}
           onBlur={removeBoxShadow}
         />
       )}
     </div>
   );
 };
-export default TextField;
+export default Textfield;
