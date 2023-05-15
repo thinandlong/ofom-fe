@@ -1,5 +1,7 @@
+const withTwin = require('./withTwin');
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withTwin({
   reactStrictMode: true,
   async redirects() {
     return [
@@ -11,6 +13,6 @@ const nextConfig = {
     ];
   },
   pageExtensions: ['page.tsx'],
-};
+});
 
 module.exports = nextConfig;
