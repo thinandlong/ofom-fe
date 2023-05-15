@@ -38,6 +38,7 @@ const useForm = <T extends object>({
       const validPropertyLen = Object.values(newErrors).filter(
         (v) => v === null,
       ).length;
+
       const isValid = propertyLen === validPropertyLen;
 
       setHasFormError(!isValid);
