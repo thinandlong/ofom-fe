@@ -13,6 +13,7 @@
   },
   "plugins": ["@typescript-eslint", "react-hooks"],
   "extends": [
+    "next/core-web-vitals",
     "airbnb",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
@@ -26,6 +27,7 @@
       "error",
       "ignorePackages",
       {
+        "js": "never",
         "ts": "never",
         "tsx": "never"
       }
@@ -69,8 +71,8 @@
     ],
     "import/prefer-default-export": "off",
     "no-alert": "off",
-    // "no-param-reassign": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }]
   },
   "settings": {
     "import/resolver": {
