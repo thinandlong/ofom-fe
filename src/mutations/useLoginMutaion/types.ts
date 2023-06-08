@@ -1,10 +1,10 @@
 export interface LoginFormInput {
-	username: string;
-	password: string;
+  username: string;
+  password: string;
 }
 
 export interface Login {
-	expiredDate: string;
-	token: string;
-	uid: number;
+  expiredDate: string;
+  token: string;
+  uid: number;
 }
