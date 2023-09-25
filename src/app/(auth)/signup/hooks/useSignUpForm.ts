@@ -1,8 +1,8 @@
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
-import { signUp } from '@api/auth';
-import type { ApiError } from '@api/types';
-import useForm from '@hooks/useForm';
+import { signUp } from '@/api/auth';
+import type { ApiError } from '@/api/types';
+import useForm from '@/hooks/useForm';
 
 const useSignUpForm = () => {
   const router = useRouter();

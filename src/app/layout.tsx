@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import ReactQueryProvider from '@store/reactQueryProvider';
+import ReactQueryProvider from '@/store/reactQueryProvider';
 
-import '@styles/globals.css';
+import '@/styles/globals.css';
 
 interface RootLayoutProps {
   children: ReactNode;

@@ -1,6 +1,6 @@
 'use client';
 
-import { withAuth } from '@components/index';
+import { withAuth } from '@/components';
 
 const MainClient = () => {
   return <div>Main</div>;
