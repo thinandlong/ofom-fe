@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
 import { login } from '@api/auth';
-import { ApiError } from '@api/types';
+import type { ApiError } from '@api/types';
 import useForm from '@hooks/useForm';
 
 const useLogInForm = () => {
