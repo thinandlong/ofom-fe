@@ -1,5 +1,7 @@
+'use client';
+
 import { NextComponentType } from 'next';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useUser } from '@queries/index';
 import { useEffect } from 'react';
 

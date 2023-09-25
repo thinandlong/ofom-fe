@@ -1,5 +1,7 @@
+'use client';
+
 import useLoginMutaion from '@mutations/useLoginMutaion';
-import useLogInForm from '@pages/login/hooks/useLoginForm';
+import useLogInForm from '../../hooks/useLoginForm';
 
 const LoginForm = () => {
   const { mutateAsync, isLoading } = useLoginMutaion();
@@ -7,7 +9,7 @@ const LoginForm = () => {
 
   return (
     <form
-      className=" w-280 mt-43
+      className="w-280 mt-43
       flex-col-items-center
       [&>input]:placeholder:text-gray400 [&>input]:border-gray400 [&>input]:border-b [&>input]:w-full [&>input]:h-31 [&>input]:outline-0 [&>input:not(:first-of-type)]:mt-32"
       onSubmit={handleSubmit}

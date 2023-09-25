@@ -1,3 +1,5 @@
+'use client';
+
 import { CustomInstance } from '@api/types';
 import axios from 'axios';
 import commonInterceptor from './commonInterceptor';

@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 interface WrapperProps {
   children: ReactNode;
 }
+
 const Wrapper = ({ children }: WrapperProps) => {
   return (
     <div className="flex-center screen-full bg-gray100 min-w-1200">
