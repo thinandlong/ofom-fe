@@ -8,3 +8,13 @@ export interface LoginResponse {
   token: string;
   uid: number;
 }
+export interface SignUpFormInput {
+  username: string;
+  password: string;
+  nickname: string;
+}
+
+export interface SignUpResponse {
+  socialType: string;
+  username: string;
+}
