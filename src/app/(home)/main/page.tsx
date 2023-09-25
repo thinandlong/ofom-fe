@@ -1,5 +1,7 @@
+import MainClient from './MainClient';
+
 const Main = () => {
-  return <div>Main</div>;
+  return <MainClient />;
 };
 
 export default Main;

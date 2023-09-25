@@ -1,7 +1,9 @@
 'use client';
 
+import { withAuth } from '@/components';
+
 const MainClient = () => {
   return <div>Main</div>;
 };
 
-export default MainClient;
+export default withAuth(MainClient);

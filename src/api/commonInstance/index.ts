@@ -1,7 +1,7 @@
 'use client';
 
-import { CustomInstance } from '@api/types';
 import axios from 'axios';
+import type { CustomInstance } from '@/api/types';
 import commonInterceptor from './commonInterceptor';
 
 const createCommonInstance = () => {

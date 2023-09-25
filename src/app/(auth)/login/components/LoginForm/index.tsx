@@ -1,11 +1,7 @@
-'use client';
-
-import useLoginMutaion from '@mutations/useLoginMutaion';
-import useLogInForm from '../../hooks/useLoginForm';
+import useLoginForm from '../../hooks/useLoginForm';
 
 const LoginForm = () => {
-  const { mutateAsync, isLoading } = useLoginMutaion();
-  const { handleChange, handleSubmit } = useLogInForm({ mutateAsync });
+  const { isLoading, handleChange, handleSubmit } = useLoginForm();
 
   return (
     <form
