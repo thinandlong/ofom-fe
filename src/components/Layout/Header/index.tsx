@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useUser } from '@queries/index';
+import useUser from '@/hooks/useUser';
 
 const Header = () => {
   const { data: user } = useUser();

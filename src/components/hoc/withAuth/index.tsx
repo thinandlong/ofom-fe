@@ -1,9 +1,7 @@
-'use client';
-
+import { useEffect } from 'react';
 import { NextComponentType } from 'next';
 import { useRouter } from 'next/navigation';
-import { useUser } from '@queries/index';
-import { useEffect } from 'react';
+import useUser from '@/hooks/useUser';
 
 const withAuth = (Component: NextComponentType) => () => {
   const { data, isLoading } = useUser();

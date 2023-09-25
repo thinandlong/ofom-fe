@@ -18,3 +18,11 @@ export interface SignUpResponse {
   socialType: string;
   username: string;
 }
+
+export interface UserResponse {
+  nickname: string;
+  socialType: string;
+  thumbnailUrl: string;
+  uid: number;
+  username: string;
+}
