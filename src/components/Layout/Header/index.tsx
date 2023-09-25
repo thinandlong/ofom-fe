@@ -9,7 +9,7 @@ const Header = () => {
       <div className="flex justify-between items-center gap-[28px] text-body_2_MD text-gray700">
         <Image
           className="w-auto h-auto"
-          src="/app-icon.png"
+          src="/images/app-icon.png"
           alt="앱아이콘"
           width={36}
           height={36}
@@ -25,14 +25,14 @@ const Header = () => {
         <div className="flex-center gap-[16px]">
           <Image
             className="w-auto h-auto cursor-pointer"
-            src={user.thumbnailUrl || '/default-thumbnail.png'}
+            src={user.thumbnailUrl || '/images/default-thumbnail.png'}
             alt="프로필이미지"
             width={28}
             height={28}
           />
           <Image
             className="w-auto h-auto cursor-pointer"
-            src="/popup.png"
+            src="/images/popup.png"
             alt="알림"
             width={24}
             height={24}

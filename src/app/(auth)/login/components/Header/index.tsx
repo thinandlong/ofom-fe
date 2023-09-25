@@ -5,7 +5,7 @@ const Header = () => {
     <>
       <Image
         className="w-auto h-auto mt-55"
-        src="/logo.png"
+        src="/images/logo.png"
         width={109}
         height={54}
         alt="logo"
