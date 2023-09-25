@@ -3,7 +3,7 @@ export interface LoginFormInput {
   password: string;
 }
 
-export interface Login {
+export interface LoginResponse {
   expiredDate: string;
   token: string;
   uid: number;
