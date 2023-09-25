@@ -1,7 +1,7 @@
-import SignupClient from './SignupClient';
+import SignUpClient from './SignUpClient';
 
 const Signup = () => {
-  return <SignupClient />;
+  return <SignUpClient />;
 };
 
 export default Signup;

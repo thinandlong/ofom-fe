@@ -4,7 +4,7 @@ import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import SignupForm from './components/SignUpForm';
 
-const SignupClient = () => {
+const SignUpClient = () => {
   return (
     <Wrapper>
       <Header />
@@ -13,4 +13,4 @@ const SignupClient = () => {
   );
 };
 
-export default SignupClient;
+export default SignUpClient;
