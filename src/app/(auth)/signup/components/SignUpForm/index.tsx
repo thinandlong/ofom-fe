@@ -1,5 +1,5 @@
 import useSignUpMutation from '@mutations/useSignUpMutaion';
-import useSignUpForm from '@pages/signup/hooks/useSignUpForm';
+import useSignUpForm from '../../hooks/useSignUpForm';
 
 const SignUpForm = () => {
   const { mutateAsync, isLoading } = useSignUpMutation();

@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CSSProperties, lazy, Suspense, useMemo } from 'react';
 import { COLOR_MAPPER, ICON_MAPPER } from './constants';

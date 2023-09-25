@@ -1,6 +1,8 @@
+'use client';
+
 import { ApiError } from '@api/types';
 import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { loginApi } from './api';
 
 const useLoginMutaion = () => {

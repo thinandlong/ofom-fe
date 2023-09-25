@@ -1,7 +1,7 @@
+import { UseMutateAsyncFunction } from '@tanstack/react-query';
 import { ApiError } from '@api/types';
 import useForm from '@hooks/useForm';
 import { Login, LoginFormInput } from '@mutations/useLoginMutaion/types';
-import { UseMutateAsyncFunction } from '@tanstack/react-query';
 
 interface useLogInFormProps {
   mutateAsync: UseMutateAsyncFunction<Login, ApiError, LoginFormInput, unknown>;

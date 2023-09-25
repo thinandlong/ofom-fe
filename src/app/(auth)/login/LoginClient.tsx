@@ -1,8 +1,10 @@
+'use client';
+
 import Header from './components/Header';
 import LoginForm from './components/LoginForm';
 import Wrapper from './components/Wrapper';
 
-const LoginPage = () => {
+const LoginClient = () => {
   return (
     <Wrapper>
       <Header />
@@ -11,4 +13,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginClient;
