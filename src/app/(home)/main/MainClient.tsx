@@ -1,6 +1,6 @@
 'use client';
 
-import { withAuth } from '@/components';
+import withAuth from '@/components/hoc/withAuth';
 
 const MainClient = () => {
   return <div>Main</div>;

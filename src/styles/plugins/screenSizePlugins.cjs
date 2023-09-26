@@ -6,6 +6,11 @@ const screenSizePlugins = plugin(function ({ addUtilities }) {
     '.screen-full': {
       width: '100%',
       height: '100vh',
+      overflow: 'hidden',
+    },
+    '.element-full': {
+      width: '100%',
+      height: '100%',
     },
   });
 });

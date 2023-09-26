@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import ReactQueryProvider from '@/store/reactQueryProvider';
+import Header from '@/layouts/Header';
 
 import '@/styles/globals.css';
 
@@ -17,7 +18,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="ko">
       <body>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <main className="screen-full bg-gray100">
+            <Header />
+            {children}
+          </main>
+        </ReactQueryProvider>
       </body>
     </html>
   );

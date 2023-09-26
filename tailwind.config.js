@@ -10,10 +10,7 @@ const flexPlugins = require('./src/styles/plugins/flexPlugins.cjs');
 const screenSizePlugins = require('./src/styles/plugins/screenSizePlugins.cjs');
 
 module.exports = {
-  content: [
-    './src/app/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors,
