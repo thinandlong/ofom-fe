@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import useUser from '@/hooks/useUser';
 
@@ -5,7 +7,7 @@ const Header = () => {
   const { data: user } = useUser();
 
   return (
-    <div className="flex justify-around items-center absolute top-0 w-[100%] h-[56px] bg-white">
+    <div className="flex justify-around items-center w-[100%] h-[56px] bg-white">
       <div className="flex justify-between items-center gap-[28px] text-body_2_MD text-gray700">
         <Image
           className="w-auto h-auto"
