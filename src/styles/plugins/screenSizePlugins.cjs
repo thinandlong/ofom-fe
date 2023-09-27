@@ -6,7 +6,7 @@ const screenSizePlugins = plugin(function ({ addUtilities }) {
     '.screen-full': {
       width: '100%',
       height: '100vh',
-      overflow: 'hidden',
+      'overflow-x': 'hidden',
     },
     '.element-full': {
       width: '100%',
