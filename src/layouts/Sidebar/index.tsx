@@ -1,5 +1,6 @@
 import Badge from '@/components/badge';
 import Button from '@/components/button';
+import Spacing from '@/components/spacing';
 
 const Sidebar = () => {
   return (
@@ -57,9 +58,13 @@ const Sidebar = () => {
           </div>
         </div>
 
+        <Spacing size={40} />
+
         {/* controller button groups */}
         <Button variant="start">설문 시작</Button>
+        <Spacing size={8} />
         <Button variant="analytics">응답</Button>
+        <Spacing size={8} />
         <Button variant="save">
           <span className="text-white text-body_2_BD">저장</span>
           <span className="w-[55px] h-[23px] px-2 py-[3px] bg-white bg-opacity-10 rounded-[100px] text-white text-caption_1_SB">
