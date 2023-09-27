@@ -1,4 +1,5 @@
 import Badge from '@/components/badge';
+import Button from '@/components/button';
 
 const Sidebar = () => {
   return (
@@ -56,15 +57,15 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div>
-          {/* Button 컴포넌트 추상화 필요 */}
-          <button type="button">설문 시작</button>
-          <button type="button">응답</button>
-          <button type="button">
-            <span>저장</span>
-            <div>00분 전</div>
-          </button>
-        </div>
+        {/* controller button groups */}
+        <Button variant="start">설문 시작</Button>
+        <Button variant="analytics">응답</Button>
+        <Button variant="save">
+          <span className="text-white text-body_2_BD">저장</span>
+          <span className="w-[55px] h-[23px] px-2 py-[3px] bg-white bg-opacity-10 rounded-[100px] text-white text-caption_1_SB">
+            00분 전
+          </span>
+        </Button>
       </div>
     </aside>
   );
