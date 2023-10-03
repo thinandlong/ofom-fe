@@ -1,35 +1,40 @@
-import Image from 'next/image';
+import Icon from '@/components/icon';
 import Spacing from '@/components/spacing';
+
+import { type SurveyControllerIconType } from '@/interfaces';
 
 interface ChipProps {
   value: string;
-  variant: 'surveyWriting';
-  status?: 'selected' | 'completed';
-  size?: 'medium';
+  variant: SurveyControllerIconType;
+  size?: 'medium' | 'default';
+  hasIcon?: boolean;
 }
 
-const Chip = ({ value, status, variant, size = 'medium' }: ChipProps) => {
+const Chip = ({
+  value,
+  variant,
+  size = 'default',
+  hasIcon = false,
+}: ChipProps) => {
   const TYPE_VARIANT = {
-    surveyWriting:
-      status === 'selected' || status === 'completed'
-        ? 'bg-blue850 text-white'
-        : 'bg-white text-gray500',
+    surveyWriting: 'bg-white text-gray500',
+    surveyWritingSelected: 'bg-blue850 text-white',
+    surveyWritingCompleted: 'bg-blue850 text-white',
+    search: 'bg-gray200 text-gray700',
+    config: 'bg-gray700 hover:bg-gray800 text-gray200 hover:text-white',
   };
 
   const SIZE_VARIANT = {
+    default: 'w-[92px] h-[40px] px-[16px] py-[8px] rounded-[100px]',
     medium: 'w-[123px] h-[40px] px-[16px] py-[8px] rounded-[100px]',
   };
 
-  const checkImage = () => {
-    if (status === 'completed') {
-      return '/images/check-completed.svg';
-    }
-
-    if (status === 'selected') {
-      return '/images/check-selected.svg';
-    }
-
-    return '/images/check-basic.svg';
+  const ICON_COLOR = {
+    surveyWriting: 'text-gray500',
+    surveyWritingSelected: 'text-[#FFFFFF80]',
+    surveyWritingCompleted: 'text-white',
+    search: 'text-gray700',
+    config: 'hover:text-white',
   };
 
   return (
@@ -37,9 +42,12 @@ const Chip = ({ value, status, variant, size = 'medium' }: ChipProps) => {
       className={`flex-center shadow text-body_2_BD ${TYPE_VARIANT[variant]} ${SIZE_VARIANT[size]}`}
       type="button"
     >
-      {variant === 'surveyWriting' && (
+      {hasIcon && (
         <>
-          <Image src={checkImage()} alt="check" width={24} height={24} />
+          <Icon
+            className={`w-[24px] h-[24px] ${ICON_COLOR[variant]}`}
+            type={variant}
+          />
           <Spacing direction="horizontal" size={8} />
         </>
       )}
