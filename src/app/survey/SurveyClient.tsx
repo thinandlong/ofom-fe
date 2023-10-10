@@ -9,7 +9,9 @@ const SurveyClient = () => {
   return (
     <Wrapper>
       <Controller />
-      <TextFiled />
+      <TextFiled type="title" />
+      <TextFiled type="desc" />
+      <TextFiled type="limit" />
       <TextFiledAddButton />
     </Wrapper>
   );
