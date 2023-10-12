@@ -1,3 +1,4 @@
+import { ChangeEvent, useState } from 'react';
 import Spacing from '@/components/spacing';
 import RequireChip from './RequireChip';
 
@@ -6,6 +7,8 @@ interface TextFieldProps {
 }
 
 const TextField = ({ type }: TextFieldProps) => {
+  const [value, setValue] = useState('');
+
   const requireTextFieldTitle = () => {
     if (type === 'title') {
       return '설문지 제목';
@@ -48,6 +51,10 @@ const TextField = ({ type }: TextFieldProps) => {
     }
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(() => e.target.value);
+  };
+
   const TEXT_PLACEHOLDER_SIZE = {
     title: 'text-title_2_BD',
     desc: 'text- body_1_MD',
@@ -74,9 +81,13 @@ const TextField = ({ type }: TextFieldProps) => {
         )}
       </div>
 
-      <div className={`text-gray500 ${TEXT_PLACEHOLDER_SIZE[type]}`}>
-        {requireTextFieldPlaceholder()}
-      </div>
+      <input
+        className={`w-full text-gray500 ${TEXT_PLACEHOLDER_SIZE[type]}`}
+        type="text"
+        value={value}
+        placeholder={requireTextFieldPlaceholder()}
+        onChange={handleChange}
+      />
     </div>
   );
 };
