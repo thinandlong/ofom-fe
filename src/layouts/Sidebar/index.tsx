@@ -4,7 +4,7 @@ import Spacing from '@/components/spacing';
 
 const Sidebar = () => {
   return (
-    <aside className="w-[473px] h-[884px] bg-white">
+    <aside className="flex flex-none w-[473px] h-[884px] bg-white">
       <div className="pt-[20px] pl-[260px] pr-[24px]">
         <div className="flex flex-col w-[189px] h-[292px] gap-[20px] cursor-default">
           {/* progress */}

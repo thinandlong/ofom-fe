@@ -7,10 +7,10 @@ interface SurveyLayout {
 
 const SurveyLayout = ({ children }: SurveyLayout) => {
   return (
-    <>
+    <div className="flex flex-1">
       <Sidebar />
       {children}
-    </>
+    </div>
   );
 };
 
