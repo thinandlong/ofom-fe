@@ -19,7 +19,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html lang="ko">
       <body>
         <ReactQueryProvider>
-          <main className="flex flex-col flex-1 bg-gray100">
+          <main className="screen-full flex flex-col flex-1 bg-gray100">
             <Header />
             {children}
           </main>
