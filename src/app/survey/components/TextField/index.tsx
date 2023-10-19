@@ -57,7 +57,7 @@ const TextField = ({ type }: TextFieldProps) => {
 
   const TEXT_PLACEHOLDER_SIZE = {
     title: 'text-title_2_BD',
-    desc: 'text- body_1_MD',
+    desc: 'text-body_1_MD',
     limit: `text-gray500 text-xl font-medium font-['Pretendard'] leading-[30px]`,
   };
 
@@ -82,7 +82,7 @@ const TextField = ({ type }: TextFieldProps) => {
       </div>
 
       <input
-        className={`w-full text-gray500 ${TEXT_PLACEHOLDER_SIZE[type]}`}
+        className={`w-full text-gray800 placeholder-gray500 ${TEXT_PLACEHOLDER_SIZE[type]}`}
         type="text"
         value={value}
         placeholder={requireTextFieldPlaceholder()}
